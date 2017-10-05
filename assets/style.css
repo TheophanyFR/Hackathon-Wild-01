@@ -1,0 +1,115 @@
+h1 {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*Start Header*/
+
+.navbar {
+    margin-bottom: 0;
+    padding-right: 4vw;
+    padding-left: 4vw;
+    width:100%;
+}
+
+/*EndHeader*/
+
+/* Start thumbnail*/
+
+.thumbnail {
+    padding-bottom: 5vh;
+}
+
+/* Start thumbnail*/
+
+/*Start Jumbotron*/
+
+.container-fluid {
+    padding: 0;
+}
+
+.jumbotron{
+    background-image: url("../src/images/mountain.png");
+    height:100vh;
+    background-size: auto;
+    text-align: center;
+}
+
+.jumbotron h1 {
+    margin-top: 33vh;
+    font-family: 'Raleway', sans-serif;
+}
+
+.btn {
+    background-color: #A7C3CF;
+    border: none;
+}
+
+/*End Jumbotron*/
+
+/*Start page Video-game*/
+
+.videogame {
+    background-image: url("../src/images/gaming-pattern.png");
+}
+
+.media {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+.media-heading {
+    font-size: 5vh;
+}
+
+.media-body p {
+    font-size: 3vh;
+}
+
+/*End page Video-game*/
+
+/*Start page Movie*/
+
+.movie {
+    background-image: url("../src/images/hypnotize.png");
+}
+
+/*End page Movie*/
+
+/*Start page TV-show*/
+
+.tv-show {
+    background-image: url("../src/images/hypnotize.png");
+}
+
+/*End page TV-show*/
+
+/*Start profil*/
+
+.profil {
+    padding-top:10vh;
+    text-align: center;
+}
+
+
+th {
+    text-align: center;
+}
+/*End profil*/
+
+/*Start Footer*/
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #A7C3CF;
+}
+
+footer li {
+    list-style: none;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: white;
+}
+
+/*End Footer*/
