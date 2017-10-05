@@ -15,6 +15,7 @@ $client = new \Betaseries\Client($betaseries);
 
 $show = $client->api('shows')->search('breaking_bad');
 
+
 /**
  * returned infos
  * types : title, images, description, seasons, creation, genres
@@ -23,7 +24,13 @@ $show = $client->api('shows')->search('breaking_bad');
 echo $show['shows'][0]['title'] . '<br>' . $show['shows'][0]['description'] . '<br>' . $show['shows'][0]['seasons']
  . '<br>' . $show['shows'][0]['creation'] . '<br>';
 echo $show['shows'][0]['images']['banner'] . '<br>';
-echo $show['shows'][0]['genres'][0];
+echo $show['shows'][0]['genres'][0] . ' - ' . $show['shows'][0]['genres'][1] ;
+
+
+
+
+
+
 
 
 ?>
