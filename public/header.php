@@ -1,3 +1,11 @@
+<?php
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,14 +43,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <form method="GET">
+                        <input name="search" type="text" class="form-control" placeholder="Search">
+                            <button href="../categories/videogames.php" type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <button type="button" class="btn btn-default navbar-btn">Sign in</button>
+                    <a href="login.php" type="button" class="btn btn-default navbar-btn">Login</a>
+                    <a href="signup.php" type="button" class="btn btn-default navbar-btn">Sign in</a>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My count<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="../category/profil.php">My profil</a></li>
                             <li role="separator" class="divider"></li>
@@ -55,11 +66,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My culture<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../category/jeuxvideo.php">Video games</a></li>
+                            <li><a href="../categories/videogames.php">Video games</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../category/film.php">Movies</a></li>
+                            <li><a href="../categories/movies.php">Movies</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../category/serie.php">TV-show</a></li>
+                            <li><a href="../categories/series.php">TV-show</a></li>
                         </ul>
                     </li>
                 </ul>
