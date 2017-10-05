@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require '../connect.php';
 $bdd = new PDO(DSN,USER, PASS);
 
@@ -17,7 +19,10 @@ if($_POST) {
 
         $userExist = $search->rowCount();
         if ($userExist == 1) {
-            header('location:index.php');
+            $userInfo = $search->fetch();
+            $_SESSION['id'] = $userInfo['id'];
+            $_SESSION['username'] = $userInfo['username'];
+            header('location:profil.php?id=' . $_SESSION['id']);
         } else {
             echo 'Cannot find you';
         }
