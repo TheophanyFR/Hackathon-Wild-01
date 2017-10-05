@@ -1,10 +1,3 @@
-<?php
-
-
-
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +61,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="../categories/videogames.php">Video games</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../categories/movies.php">Movies</a></li>
+                            <li><a href="../src/test_movies_api.php">Movies</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="../src/test_series_api.php">Series</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="../categories/series.php">TV-show</a></li>
                         </ul>

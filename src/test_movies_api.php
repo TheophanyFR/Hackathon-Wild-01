@@ -18,3 +18,30 @@ echo $movies['movies'][0]['genres'][0] . ' - ' . $movies['movies'][0]['genres'][
 echo $movies['movies'][0]['poster'] . '<br>' . $movies['movies'][0]['release_date'] . '<br>';
 echo $movies['movies'][0]['director'] . '<br>' . $movies['movies'][0]['synopsis'];
 
+?>
+
+<?php for ($i=0; $i <= 5; $i ++) : ?>
+    <section class="movie">
+        <div class="container">
+            <div class="row">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="https://images.igdb.com/igdb/image/upload/t_cover_big/<?=$movies[$i]->cover->cloudinary_id?>.jpg">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><?= $movies[$i]->name;?></h4>
+                        <p><?=$movies[$i]->summary;?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endfor; ?>
+
+<?php
+
+include '../public/footer.php';
+
+?>
