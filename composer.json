@@ -1,5 +1,14 @@
 {
     "require": {
+<<<<<<< HEAD
         "guzzlehttp/guzzle": "~6.0"
     }
 }
+=======
+        "guzzlehttp/guzzle": "~6.0",
+        "rtransat/betaseries-api": "^1.0.0"
+    }
+}
+
+
+>>>>>>> dfab775341f97cef292226f4e667496bb6393c0e

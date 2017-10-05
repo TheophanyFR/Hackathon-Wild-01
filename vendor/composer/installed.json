@@ -20,7 +20,11 @@
         "require-dev": {
             "phpunit/phpunit": "^4.0"
         },
+<<<<<<< HEAD
         "time": "2016-12-20T10:07:11+00:00",
+=======
+        "time": "2016-12-20 10:07:11",
+>>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -70,7 +74,11 @@
         "require": {
             "php": ">=5.3.0"
         },
+<<<<<<< HEAD
         "time": "2016-08-06T14:39:51+00:00",
+=======
+        "time": "2016-08-06 14:39:51",
+>>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -129,7 +137,11 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0"
         },
+<<<<<<< HEAD
         "time": "2017-03-20T17:10:46+00:00",
+=======
+        "time": "2017-03-20 17:10:46",
+>>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -199,7 +211,11 @@
         "suggest": {
             "psr/log": "Required for using the Log middleware"
         },
+<<<<<<< HEAD
         "time": "2017-06-22T18:50:49+00:00",
+=======
+        "time": "2017-06-22 18:50:49",
+>>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -237,5 +253,56 @@
             "rest",
             "web service"
         ]
+<<<<<<< HEAD
+=======
+    },
+    {
+        "name": "rtransat/betaseries-api",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/florentsorel/php-betaseries-api.git",
+            "reference": "37f0ba3dfa4dc576ce8c71e91aaad918b1c4fa7a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/florentsorel/php-betaseries-api/zipball/37f0ba3dfa4dc576ce8c71e91aaad918b1c4fa7a",
+            "reference": "37f0ba3dfa4dc576ce8c71e91aaad918b1c4fa7a",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0"
+        },
+        "time": "2016-03-20 22:59:31",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Betaseries\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Florent Sorel",
+                "email": "florent.sorel@gmail.com"
+            }
+        ],
+        "description": "PHP wrapper for Betaseries API",
+        "homepage": "https://github.com/florentsorel/php-betaseries-api",
+        "keywords": [
+            "api",
+            "betaseries",
+            "movie",
+            "tv",
+            "tv show",
+            "wrapper"
+        ]
+>>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
     }
 ]
