@@ -43,6 +43,9 @@ $show = $client->api('shows')->search($_GET['search']);
          <p><?="Season numbers " . $show['shows'][$i]['seasons'];?></p>
          <p><?=$show['shows'][$i]['genres'][0] . ' - ' . $show['shows'][$i]['genres'][1];?></p>
       <p><?=$show['shows'][$i]['description']?></p>
+         <form method="GET">
+             <button name="addition" type="submit" class="btn btn-default">Add favorite</button>
+         </form>
      </div>
     </div>
    </div>

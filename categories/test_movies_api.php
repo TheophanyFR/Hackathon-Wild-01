@@ -1,6 +1,19 @@
 <?php
 
 include '../public/header.php';
+
+require '../connect.php';
+$bdd = new PDO(DSN,USER, PASS);
+
+
+$favorite=$_GET['addition'];
+
+if($_GET['addition']){
+        $insertFavorite = $bdd->prepare("INSERT INTO members(favorite) VALUES (int)");
+        $insertFavorite->bindParam("favorite", $id);
+        $insertFavorite->execute();
+}
+
 ?>
 <?php
 require '../vendor/autoload.php';
@@ -12,6 +25,7 @@ $betaseries = new \Betaseries\Betaseries('25311bd4dd6e', 'TOKEN_UTILISATEUR');
 $client = new \Betaseries\Client($betaseries);
 
 $movies = $client->api('movies')->search($_GET['search']);
+
 
 //echo $movies['movies'][0]['title'] . '<br>';
 //echo $movies['movies'][0]['genres'][0] . ' - ' . $movies['movies'][0]['genres'][1] . '<br>';
@@ -27,7 +41,7 @@ $movies = $client->api('movies')->search($_GET['search']);
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object" src="<?=$movies['movies'][$i]['poster']?>">
+                            <img class="media-object" src="<?=$movies['movies'][$i]['poster'];?>">
                         </a>
                     </div>
                     <div class="media-body">
@@ -36,6 +50,10 @@ $movies = $client->api('movies')->search($_GET['search']);
                         <p><?=$movies['movies'][$i]['director'];?></p>
                         <p><?=$movies['movies'][$i]['genres'][0] . ' - ' . $movies['movies'][$i]['genres'][1];?></p>
                         <p><?=$movies['movies'][$i]['synopsis'];?></p>
+                        <form method="GET">
+                            <input name="addition" type="hidden" value="<?=$movies['movies'][$i]['id'];?>">
+                            <button type="submit" class="btn btn-default">Add favorite</button>
+                        </form>
                     </div>
                 </div>
             </div>

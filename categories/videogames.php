@@ -37,6 +37,9 @@ $games = json_decode($response->getBody()->getContents());
                         <p><?=getDev($games[$i])?></p>
                         <p><?=getGenre($games[$i])?></p>
                         <p><?=$games[$i]->summary;?></p>
+                        <form method="GET">
+                            <button name="addition" type="submit" class="btn btn-default">Add favorite</button>
+                        </form>
                     </div>
                 </div>
             </div>
