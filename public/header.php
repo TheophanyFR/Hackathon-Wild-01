@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!empty($_POST['username'])) {
+    $_SESSION['username'] = $_POST['username'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +39,13 @@
                 </button>
                 <a class="navbar-brand" href="#">Brand</a>
                 <img class="logo" src="../src/images/logo.png">
+            </div>
+
+            <div class="container-fluid text-right">
+                <strong>Hello <?php echo $_SESSION['username']; ?> !</strong>
+                <form method="post" action="destroy.php">
+                    <input type="submit" value="Log Out" class="btn btn-danger pull-right">
+                </form>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
