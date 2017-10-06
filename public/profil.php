@@ -3,6 +3,7 @@
 include 'header.php';
 
 require '../connect.php';
+
 $bdd = new PDO(DSN,USER, PASS);
 
 if(isset($_GET['id'])){
@@ -11,6 +12,9 @@ if(isset($_GET['id'])){
     $search->bindValue(':id', $_GET['id']);
     $search->execute();
     $userInfo = $search->fetch();
+}
+else {
+    header('Location: login.php');
 }
 
 ?>
