@@ -43,7 +43,7 @@ $movies = $client->api('movies')->search($_GET['search']);
             <div class="row">
                 <div class="col-lg-offset-4 col-lg-6">
                     <div class="page-header">
-                        <h1>Actuality <small>Cutlure change everyday</small></h1>
+                        <h1>News <small>Culture change everyday</small></h1>
                     </div>
                 </div>
             </div>

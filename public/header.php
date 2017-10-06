@@ -54,7 +54,7 @@ if(!empty($_POST['username'])) {
                         <strong>Hello <?php echo $_SESSION['username']; ?> !</strong>
                     <a href="../public/login.php" type="button" class="btn btn-default navbar-btn">Login</a>
                     <a href="../public/signup.php" type="button" class="btn btn-default navbar-btn">Create an account</a>
-                    <li><a href="../public/index.php">Actuality</a></li>
+                    <li><a href="../public/index.php">News</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My culture<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -69,7 +69,7 @@ if(!empty($_POST['username'])) {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account<span class="caret"></span></a>
                         <p><?=$userInfo['username'];?></p>
                         <ul class="dropdown-menu">
-                            <li><a href="../public/profil.php">My profil</a></li>
+                            <li><a href="../public/profil.php">My profile</a></li>
                         </ul>
                     </li>
                 </ul>
