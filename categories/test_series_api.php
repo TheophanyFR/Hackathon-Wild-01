@@ -12,7 +12,7 @@ $client = new \Betaseries\Client($betaseries);
 
 // research on a show
 
-$show = $client->api('shows')->search('breaking_bad');
+$show = $client->api('shows')->search($_GET['search']);
 
 
 /**
@@ -20,10 +20,10 @@ $show = $client->api('shows')->search('breaking_bad');
  * types : title, images, description, seasons, creation, genres
  */
 
-echo $show['shows'][0]['title'] . '<br>' . $show['shows'][0]['description'] . '<br>' . $show['shows'][0]['seasons']
- . '<br/>' . $show['shows'][0]['creation'] . '<br>';
-echo $show['shows'][0]['images']['banner'] . '<br>';
-echo $show['shows'][0]['genres'][0] . ' - ' . $show['shows'][0]['genres'][1] ;
+//echo $show['shows'][0]['title'] . '<br>' . $show['shows'][0]['description'] . '<br>' . $show['shows'][0]['seasons']
+// . '<br/>' . $show['shows'][0]['creation'] . '<br>';
+//echo $show['shows'][0]['images']['banner'] . '<br>';
+//echo $show['shows'][0]['genres'][0] . ' - ' . $show['shows'][0]['genres'][1] ;
 
 ?>
 
@@ -34,12 +34,12 @@ echo $show['shows'][0]['genres'][0] . ' - ' . $show['shows'][0]['genres'][1] ;
     <div class="media">
      <div class="media-left">
       <a href="#">
-       <img class="media-object" src="https://images.igdb.com/igdb/image/upload/t_cover_big/<?=$show[$i]->cover->cloudinary_id?>.jpg">
+       <img class="media-object" src="<?=$show['shows'][$i]['images']['poster']?>">
       </a>
      </div>
      <div class="media-body">
-      <h4 class="media-heading"><?= $show[$i]->title;?></h4>
-      <p><?=$show[$i]->summary;?></p>
+      <h4 class="media-heading"><?=$show['shows'][$i]['title']?></h4>
+      <p><?=$show['shows'][$i]['description']?></p>
      </div>
     </div>
    </div>

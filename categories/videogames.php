@@ -23,7 +23,7 @@ $games = json_decode($response->getBody()->getContents());
 
 ?>
 <?php for ($i=0; $i <= 5; $i ++) : ?>
-    <section class="movie">
+    <section class="videogames">
         <div class="container">
             <div class="row">
                 <div class="media">

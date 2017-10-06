@@ -43,12 +43,12 @@
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="login.php" type="button" class="btn btn-default navbar-btn">Login</a>
-                    <a href="signup.php" type="button" class="btn btn-default navbar-btn">Sign in</a>
+                    <a href="../public/login.php" type="button" class="btn btn-default navbar-btn">Login</a>
+                    <a href="../public/signup.php" type="button" class="btn btn-default navbar-btn">Sign in</a>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../category/profil.php">My profil</a></li>
+                            <li><a href="../categories/profil.php">My profil</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Log out</a></li>
                         </ul>
@@ -61,11 +61,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="../categories/videogames.php">Video games</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../src/test_movies_api.php">Movies</a></li>
+                            <li><a href="../categories/test_movies_api.php">Movies</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../src/test_series_api.php">Series</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="../categories/series.php">TV-show</a></li>
+                            <li><a href="../categories/test_series_api.php">TV-Shows</a></li>
                         </ul>
                     </li>
                 </ul>
