@@ -2,6 +2,7 @@
 
 include 'header.php';
 
+
 require '../connect.php';
 $bdd = new PDO(DSN,USER, PASS);
 
@@ -19,7 +20,10 @@ if($_POST) {
 
         $userExist = $search->rowCount();
         if ($userExist == 1) {
-            header('location:index.php');
+            $userInfo = $search->fetch();
+            $_SESSION['id'] = $userInfo['id'];
+            $_SESSION['username'] = $userInfo['username'];
+            header('location:profil.php?id=' . $_SESSION['id']);
         } else {
             echo 'Cannot find you';
         }
@@ -27,7 +31,6 @@ if($_POST) {
 }
 
 ?>
-
 
     <section class="login">
         <div class="container">
@@ -46,15 +49,16 @@ if($_POST) {
                             <input type="password" class="form-control" id="passwordConnect" name="passwordConnect" placeholder="Enter your password">
                         </div>
                     </div>
+                    <a class="createnew" href="signup.php">Create a new acount !</a>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type="submit" name="connexion" value="Connexion" class="btn btn-default">
                         </div>
                     </div>
+
             </form>
             </div>
             </div>
-        </div>
     </section>
 <?php
 

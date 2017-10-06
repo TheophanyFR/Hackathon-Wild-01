@@ -125,7 +125,18 @@ th {
     border-radius: 4px;
 }
 
+.createnew {
+    padding-left: 22vw;
+}
+
 /*End Login*/
+
+/* Start log out*/
+
+.logout {
+    padding-top:10vh;
+    padding-bottom: 10vh;
+}
 
 /*Start sign up*/
 

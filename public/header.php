@@ -48,7 +48,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="../categories/profil.php">My profil</a></li>
+                            <li><a href="../public/profil.php">My profil</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">Log out</a></li>
                         </ul>
