@@ -3,6 +3,7 @@
 
 
 include "../public/header.php";
+include "../src/functions.php";
 
 require '../vendor/autoload.php';
 
@@ -41,8 +42,7 @@ echo $releaseDate->format('dS M, Y');
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading"><?= $games[$i]->name;?></h4>
-                        <p><?=$epoch = substr($games[$i]->first_release_date, 0, -3);
-                            $releaseDate = new DateTime("@$epoch");$releaseDate->format('dS M, Y');?></p>
+                        <p><?=getDateFromTimestamp($games[$i])?></p>
                         <p><?=$games[$i]->summary;?></p>
                     </div>
                 </div>
