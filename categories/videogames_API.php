@@ -13,7 +13,7 @@ require '../vendor/autoload.php';
 $client = new GuzzleHttp\Client(['base_uri' => 'https://api-2445582011268.apicast.io/']);
 
 // Query game per name
-$game = 'mass-effect';
+$game = 'transistor';
 
 // Query, returns a string
 $response = $client->request('GET', 'games/?search=' . $game . '&fields=*',
@@ -22,10 +22,9 @@ $response = $client->request('GET', 'games/?search=' . $game . '&fields=*',
 // Transforms the string into a multidimensional array
 $games = json_decode($response->getBody()->getContents());
 
-//var_dump($games);
 
 // Echoes specific value (0 means first match from query, name returns the value stored at the line with the key 'name')
-//echo $games[0]->name;
+echo $games[0]->name;
 
 
 // Query the first two genres using their id collected by the game query
@@ -38,7 +37,7 @@ $response = $client->request('GET', 'genres/' . $genreID1 . ',' . $genreID2,
 $genreID = json_decode($response->getBody()->getContents());
 
 // Echoes the first two genres
-//echo $genreID[0]->name . ' - ' . $genreID[1]->name;
+echo $genreID[0]->name . ' - ' . $genreID[1]->name;
 
 
 // Query the release date
@@ -51,3 +50,13 @@ $epoch = substr($games[0]->first_release_date, 0, -3);
 $releaseDate = new DateTime("@$epoch");
 // Date format is '20th Nov, 1989'
 echo $releaseDate->format('dS M, Y');
+
+//Query the developer
+$devID = $games[0]->developers[0];
+
+$response = $client->request('GET', 'companies/' . $devID,
+    ['headers' => ['user-key' => 'fcd9d20d2b43b91df2d64f9518414e95'],]);
+
+$devID = json_decode($response->getBody()->getContents());
+
+echo $devID[0]->name;
