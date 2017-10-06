@@ -5,7 +5,6 @@ include '../public/header.php';
 require '../connect.php';
 $bdd = new PDO(DSN,USER, PASS);
 
-
 $favorite=$_POST['addition'];
 
 if($_POST['addition']){
@@ -34,24 +33,24 @@ $movies = $client->api('movies')->search($_GET['search']);
 
 ?>
 
-<?php for ($i=0; $i <= 5; $i ++) : ?>
+<?php foreach ($movies['movies'] as $value) : ?>
     <section class="movie">
         <div class="container">
             <div class="row">
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object" src="<?=$movies['movies'][$i]['poster'] ?? "../src/images/logo.png"?>">
+                            <img class="media-object" src="<?=$value['poster'] ?? "../src/images/logo.png"?>">
                         </a>
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading"><?= $movies['movies'][$i]['title'];?></h4>
-                        <p><?=$movies['movies'][$i]['release_date'];?></p>
-                        <p><?=$movies['movies'][$i]['director'];?></p>
-                        <p><?=$movies['movies'][$i]['genres'][0] . ' - ' . $movies['movies'][$i]['genres'][1];?></p>
-                        <p><?=$movies['movies'][$i]['synopsis'];?></p>
+                        <h4 class="media-heading"><?= $value['title'];?></h4>
+                        <p><?=$value['release_date'];?></p>
+                        <p><?=$value['director'];?></p>
+                        <p><?=$value['genres'][0] . ' - ' . $value['genres'][1];?></p>
+                        <p><?=$value['synopsis'];?></p>
                         <form method="POST">
-                            <input name="addition" type="hidden" value="<?=$movies['movies'][$i]['id'];?>">
+                            <input name="addition" type="hidden" value="<?=$value['id'];?>">
                             <button type="submit" class="btn btn-default">Add favorite</button>
                         </form>
                     </div>
@@ -59,7 +58,7 @@ $movies = $client->api('movies')->search($_GET['search']);
             </div>
         </div>
     </section>
-<?php endfor; ?>
+<?php endforeach; ?>
 
 <?php
 

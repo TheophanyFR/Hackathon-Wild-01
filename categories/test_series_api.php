@@ -27,31 +27,31 @@ $show = $client->api('shows')->search($_GET['search']);
 
 ?>
 
-<?php foreach ($show['shows'] as $value) : ?>
-    <section class="movie">
-        <div class="container">
-            <div class="row">
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" src="<?=$value['images']['poster'] ?? "../src/images/logo.png"?>">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading"><?=$value['title']?></h4>
-                        <p><?$value['creation'];?></p>
-                        <p><?="Season numbers " . $value['seasons'];?></p>
-                        <p><?=$value['genres'][0] . ' - ' . $value['genres'][1];?></p>
-                        <p><?=$value['description']?></p>
-                        <form method="GET">
-                            <button name="addition" type="submit" class="btn btn-default">Add favorite</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php endforeach; ?>
+<?php for ($i=0; $i <= 5; $i ++) : ?>
+ <section class="movie">
+  <div class="container">
+   <div class="row">
+    <div class="media">
+     <div class="media-left">
+      <a href="#">
+       <img class="media-object" src="<?=$show['shows'][$i]['images']['poster'] ?? "../src/images/logo.png"?>">
+      </a>
+     </div>
+     <div class="media-body">
+      <h4 class="media-heading"><?=$show['shows'][$i]['title']?></h4>
+         <p><?$show['shows'][$i]['creation'];?></p>
+         <p><?="Season numbers " . $show['shows'][$i]['seasons'];?></p>
+         <p><?=$show['shows'][$i]['genres'][0] . ' - ' . $show['shows'][$i]['genres'][1];?></p>
+      <p><?=$show['shows'][$i]['description']?></p>
+         <form method="GET">
+             <button name="addition" type="submit" class="btn btn-default">Add favorite</button>
+         </form>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+<?php endfor; ?>
 
 <?php
 
