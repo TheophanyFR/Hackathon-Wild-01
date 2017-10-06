@@ -41,7 +41,7 @@ $movies = $client->api('movies')->search($_GET['search']);
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object" src="<?=$movies['movies'][$i]['poster'];?>">
+                            <img class="media-object" src="<?=$movies['movies'][$i]['poster'] ?? "../src/images/logo.png"?>">
                         </a>
                     </div>
                     <div class="media-body">

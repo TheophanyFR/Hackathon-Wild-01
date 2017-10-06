@@ -34,7 +34,7 @@ $show = $client->api('shows')->search($_GET['search']);
     <div class="media">
      <div class="media-left">
       <a href="#">
-       <img class="media-object" src="<?=$show['shows'][$i]['images']['poster']?>">
+       <img class="media-object" src="<?=$show['shows'][$i]['images']['poster'] ?? "../src/images/logo.png"?>">
       </a>
      </div>
      <div class="media-body">
