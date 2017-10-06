@@ -13,7 +13,7 @@ require '../vendor/autoload.php';
 $client = new GuzzleHttp\Client(['base_uri' => 'https://api-2445582011268.apicast.io/']);
 
 // Query game per name
-$game = 'transistor';
+$game = 'mass-effect';
 
 // Query, returns a string
 $response = $client->request('GET', 'games/?search=' . $game . '&fields=*',
@@ -38,4 +38,16 @@ $response = $client->request('GET', 'genres/' . $genreID1 . ',' . $genreID2,
 $genreID = json_decode($response->getBody()->getContents());
 
 // Echoes the first two genres
-echo $genreID[0]->name . ' - ' . $genreID[1]->name;
+//echo $genreID[0]->name . ' - ' . $genreID[1]->name;
+
+
+// Query the release date
+$response = $client->request('GET', 'games/?search=' . $game . '&fields=*',
+    ['headers' => ['user-key' => 'fcd9d20d2b43b91df2d64f9518414e95'],]);
+
+$games = json_decode($response->getBody()->getContents());
+
+$epoch = substr($games[0]->first_release_date, 0, -3);
+$releaseDate = new DateTime("@$epoch");
+// Date format is '20th Nov, 1989'
+echo $releaseDate->format('dS M, Y');
