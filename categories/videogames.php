@@ -28,7 +28,7 @@ $games = json_decode($response->getBody()->getContents());
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object" src="https://images.igdb.com/igdb/image/upload/t_cover_big/<?=$games[$i]->cover->cloudinary_id?>.jpg">
+                            <img class="media-object" src=<?= setGameCover($games[$i]->cover->cloudinary_id)?>>
                         </a>
                     </div>
                     <div class="media-body">
