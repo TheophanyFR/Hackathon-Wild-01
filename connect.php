@@ -1,5 +1,5 @@
 <?php
 
 define('USER', 'root');
-define('PASS', 'coralie123');
+define('PASS', 'warner628787');
 define('DSN', 'mysql:host=localhost;dbname=member_space');

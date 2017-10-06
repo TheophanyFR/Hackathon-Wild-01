@@ -6,11 +6,11 @@ require '../connect.php';
 $bdd = new PDO(DSN,USER, PASS);
 
 
-$favorite=$_GET['addition'];
+$favorite=$_POST['addition'];
 
-if($_GET['addition']){
+if($_POST['addition']){
         $insertFavorite = $bdd->prepare("INSERT INTO members(favorite) VALUES (int)");
-        $insertFavorite->bindParam("favorite", $id);
+        $insertFavorite->bindParam("favorite", $favorite);
         $insertFavorite->execute();
 }
 
@@ -50,7 +50,7 @@ $movies = $client->api('movies')->search($_GET['search']);
                         <p><?=$movies['movies'][$i]['director'];?></p>
                         <p><?=$movies['movies'][$i]['genres'][0] . ' - ' . $movies['movies'][$i]['genres'][1];?></p>
                         <p><?=$movies['movies'][$i]['synopsis'];?></p>
-                        <form method="GET">
+                        <form method="POST">
                             <input name="addition" type="hidden" value="<?=$movies['movies'][$i]['id'];?>">
                             <button type="submit" class="btn btn-default">Add favorite</button>
                         </form>
