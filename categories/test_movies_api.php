@@ -32,6 +32,9 @@ $movies = $client->api('movies')->search($_GET['search']);
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading"><?= $movies['movies'][$i]['title'];?></h4>
+                        <p><?=$movies['movies'][$i]['release_date'];?></p>
+                        <p><?=$movies['movies'][$i]['director'];?></p>
+                        <p><?=$movies['movies'][$i]['genres'][0] . ' - ' . $movies['movies'][$i]['genres'][1];?></p>
                         <p><?=$movies['movies'][$i]['synopsis'];?></p>
                     </div>
                 </div>

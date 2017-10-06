@@ -39,6 +39,9 @@ $show = $client->api('shows')->search($_GET['search']);
      </div>
      <div class="media-body">
       <h4 class="media-heading"><?=$show['shows'][$i]['title']?></h4>
+         <p><?$show['shows'][$i]['creation'];?></p>
+         <p><?="Season numbers " . $show['shows'][$i]['seasons'];?></p>
+         <p><?=$show['shows'][$i]['genres'][0] . ' - ' . $show['shows'][$i]['genres'][1];?></p>
       <p><?=$show['shows'][$i]['description']?></p>
      </div>
     </div>
