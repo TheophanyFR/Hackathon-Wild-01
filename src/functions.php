@@ -39,9 +39,8 @@ function getGenre($games)
 
 function setGameCover($poster)
 {
-    if (isset($poster)){
+    if (isset($poster)) {
         echo "https://images.igdb.com/igdb/image/upload/t_cover_big/" . $poster . ".jpg";
-//        echo "../src/images/cinema.jpg";
     } else {
         echo "../src/images/logo.png";
     }
