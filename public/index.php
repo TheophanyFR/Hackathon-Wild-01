@@ -56,7 +56,10 @@ $movies = $client->api('movies')->search($_GET['search']);
                     <div class="caption">
                         <h4 class="media-heading"><?= substr(htmlentities($games[$i]->name), 0, 12);?></h4>
                         <p><?= substr(htmlentities($games[$i]->summary), 0, 100).'...' ?></p>
-                        <p><a href="#" class="btn btn-primary" role="button">I see this media</a><a href="#" class="btn btn-default" role="button">Not see yet</a></p>
+                        <form method="POST">
+                            <input name="addition" type="hidden" value="<?=$movies['movies'][$i]['id'];?>">
+                            <button type="submit" class="btn btn-default">Add favorite</button>
+                        </form>
                     </div>
                 </div>
             <?php endfor; ?>
@@ -70,7 +73,10 @@ $movies = $client->api('movies')->search($_GET['search']);
                             <div class="caption">
                                 <h4 class="media-heading"><?= substr(htmlentities($movies['movies'][$i]['title']), 0, 12);?></h4>
                                 <p><?= substr(htmlentities($movies['movies'][$i]['synopsis']), 0, 100).'...' ?></p>
-                                <p><a href="#" class="btn btn-primary" role="button">I see this media</a><a href="#" class="btn btn-default" role="button">Not see yet</a></p>
+                                <form method="POST">
+                                    <input name="addition" type="hidden" value="<?=$movies['movies'][$i]['id'];?>">
+                                    <button type="submit" class="btn btn-default">Add favorite</button>
+                                </form>
                             </div>
                         </div>
                     <?php endfor; ?>

@@ -15,12 +15,21 @@ h1 {
     height:50px;
 }
 
+.barre1 {
+    padding-right:20vw;
+}
+
 /*EndHeader*/
 
 /* Start thumbnail*/
 
 .thumbnail {
+    margin-top: 5vh;
     margin-bottom: 0;
+}
+
+.thumbnail img {
+    height: 40vh;
 }
 
 /* Start thumbnail*/
@@ -39,7 +48,7 @@ h1 {
 }
 
 .jumbotron h1 {
-    margin-top: 33vh;
+    margin-top: 25vh;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -62,7 +71,7 @@ h1 {
 }
 
 .media-heading {
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
 .media-body p {
@@ -156,6 +165,7 @@ footer {
     bottom: 0;
     width: 100%;
     background-color: #A7C3CF;
+    margin-top: 10vh;
 }
 
 footer li {

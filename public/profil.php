@@ -20,6 +20,11 @@ else {
     header('Location: login.php');
 }
 
+require '../vendor/autoload.php';
+$betaseries = new \Betaseries\Betaseries('25311bd4dd6e', 'TOKEN_UTILISATEUR');
+$client = new \Betaseries\Client($betaseries);
+$movies = $client->api('movies')-> movie(135);
+
 ?>
 
     <section class="profil">
@@ -39,7 +44,7 @@ else {
                             <th>Not see Yet</th>
                         </tr>
                         <tr>
-                            <td>Rocky</td>
+                            <td><?=$movies['movie']['title']?></td>
                             <td>Green-zone</td>
                         </tr>
                         <tr>

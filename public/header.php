@@ -15,7 +15,7 @@ if(!empty($_POST['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Titre provisoire</title>
+    <title>CrossXperience</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -37,41 +37,23 @@ if(!empty($_POST['username'])) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="#">CrossXperience</a>
                 <img class="logo" src="../src/images/logo.png">
             </div>
-
-            <div class="container-fluid text-right">
-                <strong>Hello <?php echo $_SESSION['username']; ?> !</strong>
-                <form method="post" action="destroy.php">
-                    <input type="submit" value="Log Out" class="btn btn-danger pull-right">
-                </form>
-            </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-left">
+                <div class="navbar-form navbar-left">
                     <div class="form-group">
                         <form method="GET">
                         <input name="search" type="text" class="form-control" placeholder="Search">
                             <button href="../categories/videogames.php" type="submit" class="btn btn-default">Submit</button>
                         </form>
                     </div>
-                </form>
+                </div>
                 <ul class="nav navbar-nav navbar-right">
+                        <strong>Hello <?php echo $_SESSION['username']; ?> !</strong>
                     <a href="../public/login.php" type="button" class="btn btn-default navbar-btn">Login</a>
-                    <a href="../public/signup.php" type="button" class="btn btn-default navbar-btn">Sign in</a>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account<span class="caret"></span></a>
-                        <p><?=$userInfo['username'];?></p>
-                        <ul class="dropdown-menu">
-                            <li><a href="../public/profil.php">My profil</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+                    <a href="../public/signup.php" type="button" class="btn btn-default navbar-btn">Create an account</a>
                     <li><a href="../public/index.php">Actuality</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My culture<span class="caret"></span></a>
@@ -81,6 +63,13 @@ if(!empty($_POST['username'])) {
                             <li><a href="../categories/test_movies_api.php">Movies</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="../categories/test_series_api.php">TV-Shows</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account<span class="caret"></span></a>
+                        <p><?=$userInfo['username'];?></p>
+                        <ul class="dropdown-menu">
+                            <li><a href="../public/profil.php">My profil</a></li>
                         </ul>
                     </li>
                 </ul>

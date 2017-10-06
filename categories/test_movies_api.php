@@ -9,9 +9,12 @@ $bdd = new PDO(DSN,USER, PASS);
 $favorite=$_POST['addition'];
 
 if($_POST['addition']){
-        $insertFavorite = $bdd->prepare("INSERT INTO members(favorite) VALUES (int)");
+        $insertFavorite = $bdd->prepare("UPDATE members SET favorite = $favorite");
         $insertFavorite->bindParam("favorite", $favorite);
-        $insertFavorite->execute();
+        if (!$insertFavorite->execute()) {
+            var_dump($bdd->errorInfo());
+            die();
+        }
 }
 
 ?>
