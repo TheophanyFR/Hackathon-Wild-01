@@ -20,15 +20,6 @@ $response = $client->request('GET', 'games/?search=' . $games . '&fields=*',
 // Transforms the string into a multidimensional array
 $games = json_decode($response->getBody()->getContents());
 
-// Echoes specific value (0 means first match from query, name returns the value stored at the line with the key 'name')
-
-$epoch = substr($games[0]->first_release_date, 0, -3);
-$releaseDate = new DateTime("@$epoch");
-// Date format is '20th Nov, 1989'
-echo $releaseDate->format('dS M, Y');
-
-
-
 ?>
 <?php for ($i=0; $i <= 5; $i ++) : ?>
     <section class="videogames">
@@ -43,6 +34,8 @@ echo $releaseDate->format('dS M, Y');
                     <div class="media-body">
                         <h4 class="media-heading"><?= $games[$i]->name;?></h4>
                         <p><?=getDateFromTimestamp($games[$i])?></p>
+                        <p><?=getDev($games[$i])?></p>
+                        <p><?=getGenre($games[$i])?></p>
                         <p><?=$games[$i]->summary;?></p>
                     </div>
                 </div>
