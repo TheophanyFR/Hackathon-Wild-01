@@ -53,14 +53,10 @@ class ClassLoader
 
     private $useIncludePath = false;
     private $classMap = array();
-<<<<<<< HEAD
-    private $classMapAuthoritative = false;
-    private $missingClasses = array();
-    private $apcuPrefix;
-=======
+
 
     private $classMapAuthoritative = false;
->>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
+
 
     public function getPrefixes()
     {
@@ -278,29 +274,7 @@ class ClassLoader
     }
 
     /**
-<<<<<<< HEAD
-     * APCu prefix to use to cache found/not-found classes, if the extension is enabled.
-     *
-     * @param string|null $apcuPrefix
-     */
-    public function setApcuPrefix($apcuPrefix)
-    {
-        $this->apcuPrefix = function_exists('apcu_fetch') && ini_get('apc.enabled') ? $apcuPrefix : null;
-    }
 
-    /**
-     * The APCu prefix in use, or null if APCu caching is not enabled.
-     *
-     * @return string|null
-     */
-    public function getApcuPrefix()
-    {
-        return $this->apcuPrefix;
-    }
-
-    /**
-=======
->>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
      * Registers this instance as an autoloader.
      *
      * @param bool $prepend Whether to prepend the autoloader or not
@@ -342,50 +316,26 @@ class ClassLoader
      */
     public function findFile($class)
     {
-<<<<<<< HEAD
-=======
+
         // work around for PHP 5.3.0 - 5.3.2 https://bugs.php.net/50731
         if ('\\' == $class[0]) {
             $class = substr($class, 1);
         }
 
->>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
+
         // class map lookup
         if (isset($this->classMap[$class])) {
             return $this->classMap[$class];
         }
-<<<<<<< HEAD
-        if ($this->classMapAuthoritative || isset($this->missingClasses[$class])) {
-            return false;
-        }
-        if (null !== $this->apcuPrefix) {
-            $file = apcu_fetch($this->apcuPrefix.$class, $hit);
-            if ($hit) {
-                return $file;
-            }
-        }
-=======
+
         if ($this->classMapAuthoritative) {
             return false;
         }
->>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
 
         $file = $this->findFileWithExtension($class, '.php');
 
         // Search for Hack files if we are running on HHVM
-<<<<<<< HEAD
-        if (false === $file && defined('HHVM_VERSION')) {
-            $file = $this->findFileWithExtension($class, '.hh');
-        }
 
-        if (null !== $this->apcuPrefix) {
-            apcu_add($this->apcuPrefix.$class, $file);
-        }
-
-        if (false === $file) {
-            // Remember that this class does not exist.
-            $this->missingClasses[$class] = true;
-=======
         if ($file === null && defined('HHVM_VERSION')) {
             $file = $this->findFileWithExtension($class, '.hh');
         }
@@ -393,7 +343,7 @@ class ClassLoader
         if ($file === null) {
             // Remember that this class does not exist.
             return $this->classMap[$class] = false;
->>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
+
         }
 
         return $file;
@@ -406,19 +356,11 @@ class ClassLoader
 
         $first = $class[0];
         if (isset($this->prefixLengthsPsr4[$first])) {
-<<<<<<< HEAD
-            $subPath = $class;
-            while (false !== $lastPos = strrpos($subPath, '\\')) {
-                $subPath = substr($subPath, 0, $lastPos);
-                $search = $subPath.'\\';
-                if (isset($this->prefixDirsPsr4[$search])) {
-                    foreach ($this->prefixDirsPsr4[$search] as $dir) {
-                        $length = $this->prefixLengthsPsr4[$first][$search];
-=======
+
             foreach ($this->prefixLengthsPsr4[$first] as $prefix => $length) {
                 if (0 === strpos($class, $prefix)) {
                     foreach ($this->prefixDirsPsr4[$prefix] as $dir) {
->>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
+
                         if (file_exists($file = $dir . DIRECTORY_SEPARATOR . substr($logicalPathPsr4, $length))) {
                             return $file;
                         }
@@ -467,11 +409,8 @@ class ClassLoader
         if ($this->useIncludePath && $file = stream_resolve_include_path($logicalPathPsr0)) {
             return $file;
         }
-<<<<<<< HEAD
 
         return false;
-=======
->>>>>>> dfab775341f97cef292226f4e667496bb6393c0e
     }
 }
 

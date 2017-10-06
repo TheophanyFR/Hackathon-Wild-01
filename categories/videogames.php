@@ -1,8 +1,11 @@
 <?php
 
+
+
 include "../public/header.php";
 
 require '../vendor/autoload.php';
+
 // Create a client with a base URI
 $client = new GuzzleHttp\Client(['base_uri' => 'https://api-2445582011268.apicast.io/']);
 

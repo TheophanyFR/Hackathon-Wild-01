@@ -27,12 +27,12 @@ echo $movies['movies'][0]['director'] . '<br>' . $movies['movies'][0]['synopsis'
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
-                            <img class="media-object" src="https://images.igdb.com/igdb/image/upload/t_cover_big/<?=$movies[$i]->cover->cloudinary_id?>.jpg">
+                            <img class="media-object" src="https://images.igdb.com/igdb/image/upload/t_cover_big/<?=$movies[$i]->poster?>.jpg">
                         </a>
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading"><?= $movies[$i]->name;?></h4>
-                        <p><?=$movies[$i]->summary;?></p>
+                        <h4 class="media-heading"><?= $movies[$i]->title;?></h4>
+                        <p><?=$movies[$i]->synopsis;?></p>
                     </div>
                 </div>
             </div>
