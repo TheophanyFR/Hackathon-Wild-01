@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +29,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Brand</a>
+                <img class="logo" src="../src/images/logo.png">
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,6 +47,7 @@
                     <a href="../public/signup.php" type="button" class="btn btn-default navbar-btn">Sign in</a>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account<span class="caret"></span></a>
+                        <p><?=$userInfo['username'];?></p>
                         <ul class="dropdown-menu">
                             <li><a href="../public/profil.php">My profil</a></li>
                             <li role="separator" class="divider"></li>

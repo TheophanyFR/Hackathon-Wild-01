@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include 'header.php';
 
 require '../connect.php';
@@ -12,6 +14,7 @@ if(isset($_GET['id'])){
     $search->bindValue(':id', $_GET['id']);
     $search->execute();
     $userInfo = $search->fetch();
+    setcookie('id',$_GET['username'], (time()+3600));
 }
 else {
     header('Location: login.php');

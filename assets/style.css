@@ -11,6 +11,10 @@ h1 {
     width:100%;
 }
 
+.logo {
+    height:50px;
+}
+
 /*EndHeader*/
 
 /* Start thumbnail*/
@@ -159,6 +163,7 @@ footer li {
     padding-top: 1vh;
     padding-bottom: 1vh;
     color: white;
+    font-size: 2vw;
 }
 
 /*End Footer*/
