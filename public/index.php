@@ -1,73 +1,88 @@
 <?php
 include 'header.php';
+
+
+require '../vendor/autoload.php';
+// Create a client with a base URI
+$client = new GuzzleHttp\Client(['base_uri' => 'https://api-2445582011268.apicast.io/']);
+
+// Query value
+$games = $_GET['search'];
+
+// Query, returns a string
+$response = $client->request('GET', 'games/?search=' . $games . '&fields=*',
+    ['headers' => ['user-key' => 'fcd9d20d2b43b91df2d64f9518414e95'],]);
+
+// Transforms the string into a multidimensional array
+$games = json_decode($response->getBody()->getContents());
+
+require '../vendor/autoload.php';
+ini_set('xdebug.var_display_max_depth', 5);
+ini_set('xdebug.var_display_max_children', 256);
+ini_set('xdebug.var_display_max_data', 1024);
+
+$betaseries = new \Betaseries\Betaseries('25311bd4dd6e', 'TOKEN_UTILISATEUR');
+$client = new \Betaseries\Client($betaseries);
+
+$movies = $client->api('movies')->search($_GET['search']);
+
 ?>
 
     <body>
-
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="http://via.placeholder.com/1907x680" alt="...">
-                <div class="carousel-caption">
-                    <div>
-                        <p class="premierParaSlider">KARURA EST SPÉCIALISÉE</p>
-                        <p class="secondeParaSlider">DANS LES TENUES DE SPORT ARTISTIQUE</p>
+    <section>
+            <div class="jumbotron">
+                    <div class="container">
+                        <h1>Hello, Fan</h1>
+                        <p>Welcome on your favorite website. You can control your own Culture !</p>
+                        <p><a class="btn btn-primary btn-lg" href="profil.php" role="button">Your Culture</a></p>
                     </div>
-                    <p class="troisiemeParaSlider">maillot de bain, justaucorps, jupette, léotard...</p>
+            </div>
+    </section>
+    <section class="tuile">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-4 col-lg-6">
+                    <div class="page-header">
+                        <h1>News <small>Culture change everyday</small></h1>
+                    </div>
                 </div>
             </div>
-            <div class="item">
-                <img src="http://via.placeholder.com/1907x680" alt="...">
-                <div class="carousel-caption">
-                    <div>
-                        <p class="premierParaSlider">Natation synchronisée, twirling, GR,</p>
-                        <p class="secondeParaSlider">patinage, gym, cirque, majorette...</p>
+            <div class="row">
+            <?php for ($i=0; $i <= 3; $i ++) : ?>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img class="media-object" src="https://images.igdb.com/igdb/image/upload/t_cover_big/<?=$games[$i]->cover->cloudinary_id?>.jpg">
+                    </a>
+                    <div class="caption">
+                        <h4 class="media-heading"><?= substr(htmlentities($games[$i]->name), 0, 12);?></h4>
+                        <p><?= substr(htmlentities($games[$i]->summary), 0, 100).'...' ?></p>
+                        <form method="POST">
+                            <input name="addition" type="hidden" value="<?=$movies['movies'][$i]['id'];?>">
+                            <button type="submit" class="btn btn-default">Add favorite</button>
+                        </form>
                     </div>
-                    <p class="troisiemeParaSlider">...NOUS CRÉONS VOTRE MODÈLE ADAPTÉ À VOTRE ENVIES</p>
                 </div>
+            <?php endfor; ?>
             </div>
-            <div class="item">
-                <img src="http://via.placeholder.com/1907x680" alt="...">
-                <div class="carousel-caption">
-                    <div>
-                        <p class="premierParaSlider">KARURA EST SPÉCIALISÉE</p>
-                        <p class="secondeParaSlider">DANS LES TENUES DE SPORT ARTISTIQUE</p>
-                    </div>
-                    <p class="troisiemeParaSlider">maillot de bain, justaucorps, jupette, léotard...</p>
+                <div class="row">
+                    <?php for ($i=0; $i <= 3; $i ++) : ?>
+                        <div class="col-xs-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img class="media-object" src="<?=$movies['movies'][$i]['poster']?>">
+                            </a>
+                            <div class="caption">
+                                <h4 class="media-heading"><?= substr(htmlentities($movies['movies'][$i]['title']), 0, 12);?></h4>
+                                <p><?= substr(htmlentities($movies['movies'][$i]['synopsis']), 0, 100).'...' ?></p>
+                                <form method="POST">
+                                    <input name="addition" type="hidden" value="<?=$movies['movies'][$i]['id'];?>">
+                                    <button type="submit" class="btn btn-default">Add favorite</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endfor; ?>
                 </div>
-            </div>
-            <div class="item">
-                <img src="http://via.placeholder.com/1907x680" alt="...">
-                <div class="carousel-caption">
-                    <div class="premierePartieCaption">
-                        <p class="premierParaSlider">Natation synchronisée, twirling, GR,</p>
-                        <p class="secondeParaSlider">patinage, gym, cirque, majorette...</p>
-                    </div>
-                    <p class="troisiemeParaSlider">...NOUS CRÉONS VOTRE MODÈLE ADAPTÉ À VOTRE ENVIES</p>
-                </div>
-            </div>
         </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
+    </section>
 <?php
 include 'footer.php';
 ?>

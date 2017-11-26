@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+
+include 'header.php';
+
+
 require '../connect.php';
 $bdd = new PDO(DSN,USER, PASS);
 
@@ -17,7 +22,10 @@ if($_POST) {
 
         $userExist = $search->rowCount();
         if ($userExist == 1) {
-            header('location:index.php');
+            $userInfo = $search->fetch();
+            $_SESSION['id'] = $userInfo['id'];
+            $_SESSION['username'] = $userInfo['username'];
+            header('location:profil.php?id=' . $_SESSION['id']);
         } else {
             echo 'Cannot find you';
         }
@@ -26,50 +34,37 @@ if($_POST) {
 
 ?>
 
-<!DOCTYPE html>
+    <section class="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-4 col-lg-5"
+            <h1>Connexion</h1>
+            <form class="form-horizontal" method="post" action="">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="userConnect">Id :</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-controls" id="userConnect" name="userConnect" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="passwordConnect">Password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="passwordConnect" name="passwordConnect" placeholder="Enter your password">
+                        </div>
+                    </div>
+                    <a class="createnew" href="signup.php">Create a new acount !</a>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" name="connexion" value="Connexion" class="btn btn-default">
+                        </div>
+                    </div>
 
-<html lang="fr">
+            </form>
+            </div>
+            </div>
+    </section>
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mediatheque</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-</head>
-
-<body>
-
-<h1>Connexion</h1>
-
-<form class="form-horizontal" method="post" action="">
-
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="userConnect">Id :</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="userConnect" name="userConnect" placeholder="Enter your name">
-        </div>
-
-
-
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="passwordConnect">Password:</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="passwordConnect" name="passwordConnect" placeholder="Enter your password">
-        </div>
-    </div>
+include 'footer.php';
 
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" name="connexion" value="Connexion">
-        </div>
-    </div>
-
-</form>
-
-
-</body>
-</html>
+?>

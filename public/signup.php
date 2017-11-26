@@ -1,7 +1,9 @@
 <?php
 
-require '../connect.php';
-$bdd = new PDO(DSN,USER, PASS);
+    require '../connect.php';
+    $bdd = new PDO(DSN,USER, PASS);
+
+include 'header.php';
 
 if($_POST){
     $errors = array();
@@ -40,61 +42,53 @@ if($_POST){
 
 
 
-<!DOCTYPE html>
+    <section class="signup">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-4 col-lg-5"
+                <h1>Sign in</h1>
+                <form class="form-horizontal" method="post" action="">
 
-<html lang="fr">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="username">Id :</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your name" value="<?php if(isset($_POST['username'])) echo $_POST['username'];?>">
+                        </div>
+                        <p><?php if(isset($errors['username1'])) echo $errors['username1'];?></p>
+                    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mediatheque</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-</head>
 
-<body>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="password">Password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" value="<?php if(isset($_POST['user_phone'])) echo $_POST['user_phone'];?>">
+                        </div>
+                        <p><?php if(isset($errors['password1'])) echo $errors['password1'];?></p>
+                    </div>
 
-<h1>Sign in</h1>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="confirmation">Confirm password:</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="confirmation" name="confirmation" placeholder="Confirm your password">
+                        </div>
+                        <p><?php if(isset($errors['confirmation1'])) echo $errors['confirmation1'];?></p>
+                        <p><?php if(isset($errors['confirmation2'])) echo $errors['confirmation2'];?></p>
+                    </div>
 
-<form class="form-horizontal" method="post" action="">
 
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="username">Id :</label>
-        <div class="col-sm-10">
-        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your name" value="<?php if(isset($_POST['username'])) echo $_POST['username'];?>">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" name="suscribe" value="Send" class="btn btn-default">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <p><?php if(isset($errors['username1'])) echo $errors['username1'];?></p>
-    </div>
-
-
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="password">Password:</label>
-        <div class="col-sm-10">
-        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" value="<?php if(isset($_POST['user_phone'])) echo $_POST['user_phone'];?>">
         </div>
-        <p><?php if(isset($errors['password1'])) echo $errors['password1'];?></p>
-    </div>
+    </section>
 
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="confirmation">Confirm password:</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="confirmation" name="confirmation" placeholder="Confirm your password">
-        </div>
-        <p><?php if(isset($errors['confirmation1'])) echo $errors['confirmation1'];?></p>
-        <p><?php if(isset($errors['confirmation2'])) echo $errors['confirmation2'];?></p>
-    </div>
+<?php
 
+include 'footer.php';
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" name="suscribe" value="Send">
-        </div>
-    </div>
-
-</form>
-
-
-</body>
-</html>
+?>

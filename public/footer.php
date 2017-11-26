@@ -1,5 +1,19 @@
 <!-- footer -->
 <footer>
+    <div class="container-fluid">
+    <div class="row">
+    <ul>
+        <div class="col-lg-offset-2 col-lg-4">
+        <li>Contact Us</li>
+        <li>Legal Mention</li>
+        </div>
+        <div class="col-lg-offset-2 col-lg-3">
+        <li>Find us on</li>
+        <li>Facebook</li>
+        </div>
+    </ul>
+    </div>
+    </div>
 </footer>
 
 <!-- import Jquery and BS JS -->
